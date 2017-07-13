@@ -25,6 +25,8 @@
 #include <QMouseEvent>
 #include <assert.h>
 
+#include <Emulation.h>
+
 #ifdef HAVE_QDBUS
     #include <QtDBus/QtDBus>
     #include "termwidgetholder.h"
@@ -116,14 +118,14 @@ void TermWidgetImpl::propertiesChanged()
 
     switch(Properties::Instance()->keyboardCursorShape) {
     case 1:
-        setKeyboardCursorShape(QTermWidget::UnderlineCursor);
+        setKeyboardCursorShape(Konsole::Emulation::KeyboardCursorShape::UnderlineCursor);
         break;
     case 2:
-        setKeyboardCursorShape(QTermWidget::IBeamCursor);
+        setKeyboardCursorShape(Konsole::Emulation::KeyboardCursorShape::IBeamCursor);
         break;
     default:
     case 0:
-        setKeyboardCursorShape(QTermWidget::BlockCursor);
+        setKeyboardCursorShape(Konsole::Emulation::KeyboardCursorShape::BlockCursor);
         break;
     }
 
